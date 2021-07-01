@@ -1,6 +1,17 @@
-class Appointment
-    @@all = []
+# frozen_string_literal: true
 
-    def initialize(doctor, patient, appt_time)
-    end
+class Appointment
+  @@all = []
+  attr_reader :doctor, :patient, :time
+
+  def initialize(doctor, patient, time)
+    @doctor = doctor
+    @patient = patient
+    @time = time
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
 end

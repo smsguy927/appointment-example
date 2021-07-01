@@ -1,6 +1,15 @@
-class Patient
-    @@all = []
+# frozen_string_literal: true
 
-    def initialize(name)
-    end
+class Patient
+  @@all = []
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
 end
